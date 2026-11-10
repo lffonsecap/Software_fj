@@ -149,3 +149,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+# Revisión y validación de escenarios por: Juan Camilo Menjura Contreras
