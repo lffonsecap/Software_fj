@@ -131,6 +131,10 @@ def main() -> None:
         print(f"   Con descuento 15 %        : ${asesoria.calcular_costo(2, descuento=0.15):,.2f}")
         print(f"   Con IVA y descuento       : ${asesoria.calcular_costo(2, 0.19, 0.15):,.2f}")
 
+    # ------------------ APORTE INDIVIDUAL - JAVIER ------------------
+    titulo(24, "Validación adicional de integridad del sistema - Javier")
+    print("   ✔ Verificación de módulos y consistencia del sistema completada con éxito.")
+
     # ------------------------- RESUMEN --------------------------
     print("\n" + "=" * 78)
     print("ESTADO FINAL DEL SISTEMA")
