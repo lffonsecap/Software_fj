@@ -10,7 +10,7 @@ Sistema orientado a objetos en Python, **sin base de datos**: todo se maneja con
 python main.py
 ```
 
-Requiere Python 3.10 o superior. No usa librerías externas.
+Requiere Python 3.9 o superior. No usa librerías externas.
 
 ## Estructura
 
