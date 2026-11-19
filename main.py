@@ -134,7 +134,18 @@ def main() -> None:
     # ------------------ APORTE INDIVIDUAL - JAVIER ------------------
     titulo(24, "Validación adicional de integridad del sistema - Javier")
     print("   ✔ Verificación de módulos y consistencia del sistema completada con éxito.")
+    # ------------------ APORTE INDIVIDUAL - LEONARDO ------------------
+    titulo(25, "Crear capacitación válida y reservarla - Leonardo")
+    capacitacion = sistema.crear_servicio("capacitacion", nombre="Taller de Python", tarifa_base=30_000,
+                                          tema="Programación orientada a objetos", participantes=10)
+    if capacitacion:
+        r5 = sistema.crear_reserva("1023456789", capacitacion.id, 4)
+        if r5:
+            sistema.confirmar_reserva(r5.id)
 
+    titulo(26, "Capacitación inválida: 1 hora (el mínimo son 2) - Leonardo")
+    if capacitacion:
+        sistema.crear_reserva("80123456", capacitacion.id, 1)
     # ------------------------- RESUMEN --------------------------
     print("\n" + "=" * 78)
     print("ESTADO FINAL DEL SISTEMA")
