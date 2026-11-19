@@ -18,7 +18,7 @@ from excepciones import (
 )
 from logger_config import obtener_logger
 from reserva import Reserva
-from servicios import AlquilerEquipo, Asesoria, ReservaSala
+from servicios import AlquilerEquipo, Asesoria, Capacitacion, ReservaSala
 
 logger = obtener_logger("gestor")
 
@@ -27,7 +27,7 @@ class SistemaGestion:
     """Fachada principal del sistema Software FJ."""
 
     # Mapa de tipos de servicio disponibles -> clase que los implementa
-    TIPOS_SERVICIO = {"sala": ReservaSala, "equipo": AlquilerEquipo, "asesoria": Asesoria}
+    TIPOS_SERVICIO = {"sala": ReservaSala, "equipo": AlquilerEquipo, "asesoria": Asesoria, "capacitacion": Capacitacion}
 
     def __init__(self):
         self.__clientes: list[Cliente] = []    # Lista interna de clientes

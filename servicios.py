@@ -232,3 +232,29 @@ class Asesoria(Servicio):
     def describir(self) -> str:
         return (f"Asesoría {self.id}: {self.nombre} | {self.__especialidad} ({self.__nivel}) | "
                 f"${self.tarifa_base:,.0f}/hora | {'Disponible' if self.disponible else 'NO disponible'}")
+
+
+
+class Capacitacion(Servicio):
+    """Capacitación grupal. Se cobra por hora y por cada participante."""
+
+    def __init__(self, nombre, tarifa_base, tema, participantes):
+        # Validamos los atributos propios antes de llamar al constructor padre
+        if not tema or not isinstance(tema, str):
+            raise ParametroFaltanteError("tema")
+        self.__tema = tema.strip()
+        self.__participantes = int(validar_numero(participantes, "participantes", 1, 40))
+        super().__init__(nombre, tarifa_base, "horas")
+
+    def validar_parametros(self, duracion) -> float:
+        # Una capacitación dura entre 2 y 6 horas
+        return validar_numero(duracion, "duración (horas)", 2, 6)
+
+    def _costo_base(self, duracion: float) -> float:
+        # Tarifa por hora multiplicada por el número de participantes
+        return self.tarifa_base * duracion * self.__participantes
+
+    def describir(self) -> str:
+        return (f"Capacitación {self.id}: {self.nombre} | {self.__tema} | "
+                f"{self.__participantes} participantes | ${self.tarifa_base:,.0f}/hora por persona | "
+                f"{'Disponible' if self.disponible else 'NO disponible'}")
